@@ -1,0 +1,12 @@
+services:
+  opencode-web:
+    build: .
+    image: opencode-web:dev
+    environment:
+      - OPENCODE_PORT=8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./workspace:/home/node/workspace
+      - ./data/opencode-state/config:/home/node/.config/opencode
+      - ./data/opencode-state/data:/home/node/.local/share/opencode
