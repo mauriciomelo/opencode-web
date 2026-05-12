@@ -4,7 +4,7 @@ Runs OpenCode Web with git and PDF reading tools (`pdftotext`, `pdfinfo`).
 
 ## Run
 
-The container starts OpenCode Web by default. Expose container port `4096` or the value of `OPENCODE_PORT`.
+The container starts OpenCode Web by default. Expose container port `8080` or the value of `OPENCODE_PORT`.
 
 This repository includes a Compose helper for local development:
 
@@ -12,7 +12,9 @@ This repository includes a Compose helper for local development:
 docker compose up --build
 ```
 
-Open `http://localhost:4096`.
+Open `http://localhost:8080`.
+
+Published images are available from GitHub Container Registry as `ghcr.io/<owner>/<repo>`.
 
 For Docker, Kubernetes, or another container runtime, mount storage to the container paths below.
 
@@ -31,8 +33,8 @@ The included Compose file mounts these paths from local ignored directories for 
 | Name | Default | Explanation |
 | --- | --- | --- |
 | `OPENCODE_HOSTNAME` | `0.0.0.0` | Allows OpenCode to accept traffic forwarded by Docker, Kubernetes, or a reverse proxy. Keep this default for container deployments. |
-| `OPENCODE_PORT` | `4096` | OpenCode's listen port inside the container. Change it if your platform requires a different container port. |
+| `OPENCODE_PORT` | `8080` | OpenCode's listen port inside the container. Change it if your platform requires a different container port. |
 | `OPENCODE_SERVER_PASSWORD` | unset | Enables web UI basic auth when set. Leave unset only for trusted local networks. |
 | `OPENCODE_SERVER_USERNAME` | `opencode` | Basic auth username used with `OPENCODE_SERVER_PASSWORD`; change it if you want a non-default login name. |
 
-The Compose helper maps host port `4096` to container port `4096`.
+The Compose helper maps host port `8080` to container port `8080`.
